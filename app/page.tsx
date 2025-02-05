@@ -1,5 +1,6 @@
-"use client";
+"use client"; // クライアントを使用するためのディレクティブ
 
+// 必要に応じてインポートを追加
 import { useState, useEffect } from "react";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "@/amplify/data/resource";
@@ -7,17 +8,21 @@ import "./../app/app.css";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
-import { Authenticator } from "@aws-amplify/ui-react"; // 追加！
+import { Authenticator } from "@aws-amplify/ui-react"; 
 import  Link  from 'next/link';
 
+//　headerとfooterをインポート
 import Header from "./components/header";
 import Footer from "./components/footer";
 
-import { I18n } from 'aws-amplify/utils';
-import { PT_BR } from "../translations/ja.js";
-import { userInfo } from "os";
-I18n.putVocabularies(PT_BR);
-I18n.setLanguage('ja');
+// 標準コンポーネントを日本語化する
+// import { I18n } from 'aws-amplify/utils';
+// import { PT_BR } from "../translations/ja.js";
+// I18n.putVocabularies(PT_BR);
+// I18n.setLanguage('ja');
+
+// カスタムコンポーネントを定義
+import {customComponents, formFields} from "./components/custom_sign_in_up";
 
 Amplify.configure(outputs);
 
@@ -43,7 +48,7 @@ export default function App() {
   }
 
   return (
-    <Authenticator>
+    <Authenticator formFields={formFields} components={customComponents}>
       {({ signOut, user }) => (
         <>
           <Header />
