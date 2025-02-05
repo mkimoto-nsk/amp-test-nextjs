@@ -8,10 +8,14 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 import { Authenticator } from "@aws-amplify/ui-react"; // 追加！
-import { Link } from 'react-router-dom';
+import  Link  from 'next/link';
+
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 import { I18n } from 'aws-amplify/utils';
 import { PT_BR } from "../translations/ja.js";
+import { userInfo } from "os";
 I18n.putVocabularies(PT_BR);
 I18n.setLanguage('ja');
 
@@ -41,24 +45,24 @@ export default function App() {
   return (
     <Authenticator>
       {({ signOut, user }) => (
-        <main>
-          <h1>My todos</h1>
-          <button onClick={signOut}>Sign out</button> 
-          <button onClick={createTodo}>+ new</button>
-          <ul>
-            {todos.map((todo) => (
-              <li key={todo.id}>{todo.content}</li>
-            ))}
-          </ul>
-          <div>
-            🥳 App successfully hosted. Try creating a new todo.
-            <br />
-            <a href="https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/">
-              Review next steps of this tutorial.
-            </a>
-          </div>
-          <a href="/Bedrock-talk">Go to Bedrock Talk</a>
-        </main>
+        <>
+          <Header />
+            <h1>Welcome!</h1>
+              <main>
+                {user ? user.username : "no user"} さん
+                <h1>My todos</h1>
+                <button onClick={signOut}>Sign out</button> 
+                <br />
+                <button onClick={createTodo}>Create todo</button>
+                <ul>
+                  {todos.map((todo) => (
+                    <li key={todo.id}>{todo.content}</li>
+                  ))}
+                </ul>
+                <Link href="/Bedrock-talk">OGKと会話する</Link>
+              </main>
+        <Footer />
+        </>
       )}
     </Authenticator>
   );
