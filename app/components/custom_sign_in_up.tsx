@@ -7,7 +7,7 @@ I18n.setLanguage("ja")
 I18n.putVocabularies(translations)
 I18n.putVocabularies({
     ja:{
-        "Nickname":"ユーザ名"
+        "Nickname":"社員番号"
     }
 })
 
@@ -32,7 +32,7 @@ const customComponents = {
 const formFields = {
     signUp: {
         nickname: {
-            placeholder: "ユーザー名を入力してください",
+            placeholder: "社員番号を入力してください",
             order:1
         },
         email: {

@@ -5,7 +5,7 @@ import  Link  from 'next/link';
 const Footer: React.FC = () => {
   return (
     <footer className="footer">
-      <p>© 2025 Nihon System Kaihatsu inc.</p>
+      <p>© 2025 Nihon System Kaihatsu Inc.</p>
     </footer>
   );
 };
