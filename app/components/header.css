@@ -38,3 +38,57 @@
     color: #ffca28;
   }
   
+
+.user-info {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.arrow-down{
+  width: 15px;
+  height: 15px;
+  border: 2px solid;
+  border-color:  transparent transparent #fff #fff;;
+  transform: rotate(-45deg);
+  margin-left: 10px;
+  cursor: pointer; /* クリック可能にする */
+  transition: transform 0.1s ease; /* 回転のアニメーション */
+}
+.arrow-down.rotate-up {
+  transform: rotate(-225deg); /* 上向きに回転 */
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 3.0rem; /* ユーザー名とメニューの間隔 */
+  right: 0;
+  /* background-color: #333; */
+  color: #fff;
+  /* padding: 10px; */
+  border-radius: 5px;
+  width: 150px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  background-color: rgb(65, 65, 65);
+  padding: 0;
+}
+
+.dropdown-menu li {
+  margin: 0px 0;
+  background-color: rgb(65, 65, 65);
+}
+
+.dropdown-menu a, .dropdown-menu button {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.dropdown-menu a:hover, .dropdown-menu button:hover {
+  background-color: #555;
+}
