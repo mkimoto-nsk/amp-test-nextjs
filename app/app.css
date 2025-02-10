@@ -1,9 +1,9 @@
 body {
     margin: 0;
-    background: linear-gradient(180deg, rgb(117, 81, 194), rgb(255, 255, 255));
+    background: linear-gradient(180deg, #465ec6 ,#ffffff) !important;
     display: flex;
     flex-direction: column;
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif !important;
     height: 100vh;
     width: 100vw;
     justify-content: center;
@@ -64,3 +64,75 @@ body {
     font-weight: 800;
     text-decoration: none;
   }
+
+
+/* サイドバーの基本スタイル */
+.sidebar {
+  position: fixed;
+  top: 5.2rem;
+  left: -250px; /* 初期状態では隠す */
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding-top: 60px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0);
+}
+
+.sidebar.open {
+  transform: translateX(250px);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 15px;
+  background-color: #ffffff70;
+  border-bottom: 1px solid #444;
+}
+
+.sidebar li:hover {
+  background-color: #ffffff90;
+}
+
+.sidebar a {
+  color: rgba(255, 255, 255, 0.74);
+  text-decoration: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ハンバーガーボタン */
+.sidebar-toggle {
+  position: fixed;
+  top: 5.2rem;
+  left: 10px;
+  color: white;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* メインコンテンツ */
+.content {
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.content.shifted {
+  margin-left: 250px;
+}

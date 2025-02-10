@@ -7,7 +7,8 @@ I18n.setLanguage("ja")
 I18n.putVocabularies(translations)
 I18n.putVocabularies({
     ja:{
-        "Nickname":"社員番号"
+        "Nickname":"社員番号",
+        "Incorrect username or password.":"メールアドレスまたはパスワードが不正です",
     }
 })
 
